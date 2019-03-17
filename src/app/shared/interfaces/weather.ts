@@ -1,5 +1,5 @@
 export interface Weather {
-  city: string;
+  name: string;
   country: string;
   image: string;
   description: string;

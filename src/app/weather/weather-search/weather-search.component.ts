@@ -8,13 +8,22 @@ import { WeatherService } from '../weather.service';
 })
 export class WeatherSearchComponent implements OnInit {
   query = '';
+  weather: any;
+  errorMessage = '';
 
-  constructor() { }
+  constructor(private weatherService: WeatherService) { }
 
   ngOnInit() {
   }
 
   search() {
+    this.weatherService
+        .searchWeatherData(this.query)
+        .subscribe(
+          weather => this.weather = weather,
+          error => this.errorMessage = <any>error,
+          () => this.query = ''
+        );
   }
 
 }
