@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
+import { Weather } from '../../shared/interfaces/weather';
+import { WeatherDataService } from '../weather-data.service';
 
 @Component({
   selector: 'app-weather-search',
@@ -8,12 +10,16 @@ import { WeatherService } from '../weather.service';
 })
 export class WeatherSearchComponent implements OnInit {
   query = '';
-  weather: any;
-  errorMessage = '';
+  errorMessage: any = {};
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService,
+              private weatherDataService: WeatherDataService) { }
 
   ngOnInit() {
+  }
+
+  set weather(data: Weather) {
+    this.weatherDataService.weather = data;
   }
 
   search() {
