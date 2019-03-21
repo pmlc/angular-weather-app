@@ -5,3 +5,10 @@
 .example-header-image {
   background-size: cover;
 }
+
+.description {
+  padding-top: 10px;
+}
+agm-map {
+  height: 300px;
+}
