@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'API - KEY'
+      apiKey: 'AIzaSyA96_Yo7ecKOxOnkeDD-DGWpEpiibngcMw'
     }),
   ],
   exports: [
