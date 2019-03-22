@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { WeatherService } from '../weather.service';
 import { Weather } from '../../shared/interfaces/weather';
 import { WeatherDataService } from '../weather-data.service';
-import { AuthProvider } from 'ngx-auth-firebaseui';
 
 @Component({
   selector: 'app-weather-search',
@@ -12,7 +11,6 @@ import { AuthProvider } from 'ngx-auth-firebaseui';
 export class WeatherSearchComponent implements OnInit {
   query = '';
   errorMessage: any = {};
-  providers = AuthProvider;
 
   constructor(private weatherService: WeatherService,
               private weatherDataService: WeatherDataService) { }
