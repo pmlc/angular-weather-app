@@ -11,13 +11,13 @@ import { Router } from '@angular/router';
  providedIn: 'root'
 })
 export class UserAuthService {
-  user: Observable<User | null>;
+  user$: Observable<User | null>;
 
   constructor(private http: HttpClient,
              private router: Router,
              public afAuth: AngularFireAuth,
              private snackBar: MatSnackBar) {
-               this.user = this.afAuth.authState;
+               this.user$ = this.afAuth.authState;
              }
 
   logout() {
