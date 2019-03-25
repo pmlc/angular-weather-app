@@ -12,7 +12,7 @@
       <a mat-list-item
          class="menu-link"
          *ngIf="(userAuth.user$ | async)?.uid"
-         [routerLink]="['/user/cities']"
+         [routerLink]="['/user/cities', (userAuth.user$ | async)?.uid || 'all' ]"
          >Saved Cities</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -45,4 +45,4 @@
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-</mat-sidenav-container>er>
+</mat-sidenav-container>
