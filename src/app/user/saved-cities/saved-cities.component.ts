@@ -9,11 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./saved-cities.component.css']
 })
 export class SavedCitiesComponent implements OnInit {
-  cities: any = {};
+  cities: any[];
   city: any = {};
   panelOpenState = false;
-  updateForm = false;
-  saveForm = true;
+  updateForm = true;
   userId = this.route.snapshot.paramMap.get('id');
 
   constructor(private firebaseService: FirebaseService,
@@ -36,5 +35,24 @@ export class SavedCitiesComponent implements OnInit {
             this.cities = cities;
           }
         );
+  }
+
+  saveCityUpdate(newCity: City) {
+    console.log(newCity);
+    this.firebaseService
+        .updateCity(this.userId, this.city.id, newCity);
+        this.city = {};
+  }
+
+  deleteCity(city: City) {
+    this.firebaseService
+        .deleteCity(this.userId, city);
+  }
+
+  updateCity(city: any) {
+    this.city.name = city.weather.name;
+    this.city.description = city.weather.description;
+    this.city.temperature = city.weather.temperature;
+    this.city.id = city.id;
   }
 }
